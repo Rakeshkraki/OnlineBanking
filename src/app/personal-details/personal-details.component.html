@@ -1,0 +1,402 @@
+<div class="containers">
+  <div class="image-container">
+    <img src="/assets/images/logo.png" alt="" width="100px" />
+  </div>
+  <div class="form-div">
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <h4 class="mt-2">Create New Account</h4>
+
+        <h5>Personal Details</h5>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <div class="input-icon"><i class="fa fa-user"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('firstName')?.invalid &&
+              registerForm.get('firstName')?.touched
+            "
+          >
+            <small>First Name is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          <div class="input-icon"><i class="fa fa-user"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('lastName')?.invalid &&
+              registerForm.get('lastName')?.touched
+            "
+          >
+            <small>Last Name is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="PAN" formControlName="pan" />
+          <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('pan')?.invalid &&
+              registerForm.get('pan')?.touched
+            "
+          >
+            <small>PAN is required.</small>
+          </div>
+        </div>
+        <div class="col-half">
+          <h6>Date of Birth</h6>
+          <div class="input-group">
+            <div class="col-third">
+              <input type="text" placeholder="DD" formControlName="dobDay" />
+              <div
+                *ngIf="
+                  registerForm.get('dobDay')?.invalid &&
+                  registerForm.get('dobDay')?.touched
+                "
+              >
+                <small>Day is required.</small>
+              </div>
+            </div>
+            <div class="col-third">
+              <input type="text" placeholder="MM" formControlName="dobMonth" />
+              <div
+                *ngIf="
+                  registerForm.get('dobMonth')?.invalid &&
+                  registerForm.get('dobMonth')?.touched
+                "
+              >
+                <small>Month is required.</small>
+              </div>
+            </div>
+            <div class="col-third">
+              <input type="text" placeholder="YYYY" formControlName="dobYear" />
+              <div
+                *ngIf="
+                  registerForm.get('dobYear')?.invalid &&
+                  registerForm.get('dobYear')?.touched
+                "
+              >
+                <small>Year is required.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-half">
+          <h6>Gender</h6>
+          <div class="input-group">
+            <input
+              id="gender-male"
+              type="radio"
+              name="gender"
+              formControlName="gender"
+              value="male"
+            />
+            <label for="gender-male">Male</label>
+            <input
+              id="gender-female"
+              type="radio"
+              name="gender"
+              formControlName="gender"
+              value="female"
+            />
+            <label for="gender-female">Female</label>
+            <div
+              *ngIf="
+                registerForm.get('gender')?.invalid &&
+                registerForm.get('gender')?.touched
+              "
+            >
+              <small>Gender is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Nationality"
+            formControlName="nationality"
+          />
+          <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('nationality')?.invalid &&
+              registerForm.get('nationality')?.touched
+            "
+          >
+            <small>Nationality is required.</small>
+          </div>
+        </div>
+
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Occupation Type"
+            formControlName="occupationType"
+          />
+          <div class="input-icon"><i class="fa fa-id-card"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('occupationType')?.invalid &&
+              registerForm.get('occupationType')?.touched
+            "
+          >
+            <small>Occupation Type is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Annual Income"
+            formControlName="annualIncome"
+          />
+          <div class="input-icon"><i class="fa fa-money"></i></div>
+
+          <div
+            *ngIf="
+              registerForm.get('annualIncome')?.invalid &&
+              registerForm.get('annualIncome')?.touched
+            "
+          >
+            <small>Annual Income is required.</small>
+          </div>
+        </div>
+
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Educational Qualification"
+            formControlName="educationalQualification"
+          />
+          <div class="input-icon"><i class="fa fa-id-card"></i></div>
+
+          <div
+            *ngIf="
+              registerForm.get('educationalQualification')?.invalid &&
+              registerForm.get('educationalQualification')?.touched
+            "
+          >
+            <small>Educational Qualification is required.</small>
+          </div>
+        </div>
+
+        <!-- Contact Details Section -->
+        <h5>Contact Details</h5>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            formControlName="mobileNumber"
+          />
+          <div class="input-icon"><i class="fa fa-phone"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('mobileNumber')?.invalid &&
+              registerForm.get('mobileNumber')?.touched
+            "
+          >
+            <small>Mobile Number is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="email"
+            placeholder="Email Address"
+            formControlName="email"
+          />
+          <div class="input-icon"><i class="fa fa-envelope"></i></div>
+          <div
+            *ngIf="
+              registerForm.get('email')?.invalid &&
+              registerForm.get('email')?.touched
+            "
+          >
+            <small>Email is required and must be valid.</small>
+          </div>
+        </div>
+
+        <!-- Proof of Identity / Address Section -->
+        <h5>Proof of Identity / Address</h5>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Aadhar" formControlName="aadhar" />
+          <div class="input-icon"><i class="fa fa-addres-book"></i></div>
+
+          <div
+            *ngIf="
+              registerForm.get('aadhar')?.invalid &&
+              registerForm.get('aadhar')?.touched
+            "
+          >
+            <small>Aadhar is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Voter Id" formControlName="voterId" />
+          <div
+            *ngIf="
+              registerForm.get('voterId')?.invalid &&
+              registerForm.get('voterId')?.touched
+            "
+          >
+            <small>Voter Id is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Driving License"
+            formControlName="drivingLicense"
+          />
+          <div
+            *ngIf="
+              registerForm.get('drivingLicense')?.invalid &&
+              registerForm.get('drivingLicense')?.touched
+            "
+          >
+            <small>Driving License is required.</small>
+          </div>
+        </div>
+
+        <!-- Address Details Section -->
+        <h5>Address Details</h5>
+
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Address" formControlName="address" />
+          <div
+            *ngIf="
+              registerForm.get('address')?.invalid &&
+              registerForm.get('address')?.touched
+            "
+          >
+            <small>Address is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="City" formControlName="city" />
+          <div
+            *ngIf="
+              registerForm.get('city')?.invalid &&
+              registerForm.get('city')?.touched
+            "
+          >
+            <small>City is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="District"
+            formControlName="district"
+          />
+          <div
+            *ngIf="
+              registerForm.get('district')?.invalid &&
+              registerForm.get('district')?.touched
+            "
+          >
+            <small>District is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="State" formControlName="state" />
+          <div
+            *ngIf="
+              registerForm.get('state')?.invalid &&
+              registerForm.get('state')?.touched
+            "
+          >
+            <small>State is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Pin" formControlName="pin" />
+          <div
+            *ngIf="
+              registerForm.get('pin')?.invalid &&
+              registerForm.get('pin')?.touched
+            "
+          >
+            <small>Pin is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <input
+            type="text"
+            placeholder="Country Name"
+            formControlName="countryName"
+          />
+          <div
+            *ngIf="
+              registerForm.get('countryName')?.invalid &&
+              registerForm.get('countryName')?.touched
+            "
+          >
+            <small>Country Name is required.</small>
+          </div>
+        </div>
+
+        <div class="input-group input-group-icon">
+          <input type="text" placeholder="Place" formControlName="place" />
+          <div
+            *ngIf="
+              registerForm.get('place')?.invalid &&
+              registerForm.get('place')?.touched
+            "
+          >
+            <small>Place is required.</small>
+          </div>
+        </div>
+        <div class="input-group input-group-icon">
+          <select formControlName="branch">
+            <option value="1">Bangalore</option>
+            <option value="14">Mysore</option>
+          </select>
+          <div
+            *ngIf="
+              registerForm.get('branch')?.invalid &&
+              registerForm.get('branch')?.touched
+            "
+          >
+            <small>Branch is required.</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <h6>Terms and Conditions</h6>
+          <div class="input-group">
+            <input id="terms" type="checkbox" formControlName="terms" />
+            <label for="terms">
+              I accept the terms and conditions for signing up to this service,
+              and hereby confirm I have read the privacy policy.
+            </label>
+            <div
+              *ngIf="
+                registerForm.get('terms')?.invalid &&
+                registerForm.get('terms')?.touched
+              "
+            >
+              <small>You must accept the terms and conditions.</small>
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="submitButton"
+          type="submit"
+          class="btn"
+          [disabled]="!registerForm.valid"
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

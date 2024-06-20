@@ -1,0 +1,207 @@
+<div class="bank-admin-dashboard">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="media d-flex align-items-center">
+      <img
+        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+        alt="..."
+        width="45"
+        class="mr-3 rounded-circle img-thumbnail shadow-sm"
+        style="margin-right: 5px"
+      />
+      <div class="media-body">
+        <h2 class="m-0">
+          {{ admin.adminName }}
+        </h2>
+        <span>{{ admin.adminEmail }}</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a (click)="usrFull()">Accounts</a></li>
+      <li><a (click)="accFull()">Transactions</a></li>
+      <li><a (click)="branches()">Branches</a></li>
+      <li><a (click)="msgReq()">Deposit Reauests</a></li>
+      <li><a (click)="addAdmin()">Add Admins</a></li>
+      <!-- <li><a (click)="adminList()">Deposit Reauests</a></li> -->
+    </ul>
+
+    <div class="image-container">
+      <img
+        src="/assets/images/logo.png"
+        alt=""
+        width="100px"
+        style="margin-top: 100%"
+      />
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <mat-toolbar color="primary" class="navbar">
+      <div class="logo">
+        <img src="/assets/images/logo.png" alt="Logo" class="logo-img" />
+      </div>
+      <span class="spacer"></span>
+      <button class="btn" (click)="logout()">Logout</button>
+    </mat-toolbar>
+    <div class="div d-flex">
+      <div class="card" id="table" (click)="usrFull()">
+        <div class="table-responsive" id="table1">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">profile</th>
+                <th scope="col">Full Name</th>
+
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(transaction of allUsers; track $index){
+              <tr>
+                <td>
+                  <img
+                    src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+                    alt="..."
+                    width="25"
+                    class="mr-4 rounded-circle img-thumbnail shadow-sm"
+                  />
+                </td>
+                <td>{{ transaction.firstName }} {{ transaction.lastName }}</td>
+
+                <td>{{ transaction.mobileNumber }}</td>
+                <td>{{ transaction.emailAddress }}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" id="table">
+        <div class="table-responsive" id="table1">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Account Number</th>
+                <th scope="col">MobileNumber</th>
+                <th scope="col">Pan Number</th>
+                <th scope="col">Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(transaction of netBankUsers; track transaction){
+              <tr>
+                <td>{{ transaction.accountNumber }}</td>
+                <td>{{ transaction.mobileNumber }}</td>
+
+                <td>{{ transaction.pan }}</td>
+                <td>
+                  <i class="fas fa-dollar-sign text-success mr-3"></i
+                  >{{ transaction.balance }}
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="div d-flex">
+      <div class="card" id="table">
+        <h4>Transactions</h4>
+
+        <div class="table-responsive" id="table1" (click)="accFull()">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Date</th>
+                <th scope="col">From Acc</th>
+                <th scope="col">To Acc</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(transaction of transactions; track $index){
+              <tr>
+                <td>{{ transaction.transactionId }}</td>
+                <td>{{ transaction.transactionDate }}</td>
+
+                <td>{{ transaction.fromAccount }}</td>
+                <td>{{ transaction.toAccount }}</td>
+                <td>
+                  <i class="fas fa-dollar-sign text-success mr-3"></i
+                  >{{ transaction.amount }}
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-15">
+        <div class="row" style="margin-top: 30px">
+          <div class="payment-form-container">
+            <!-- <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <p class="ps-3 text-muted fw-bold h5 mb-4">Make Payment</p>
+
+                <label for="amount">Amount</label>
+                <div class="amount-input-container">
+                  <span
+                    class="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"
+                  ></span>
+                  <input
+                    type="number"
+                    id="amount"
+                    formControlName="amount"
+                    class="amount-input"
+                    required
+                  />
+                  <span class="text-muted">.00</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="accountNumber">Account Number</label>
+                <input
+                  type="text"
+                  id="accountNumber"
+                  formControlName="accountNumber"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  formControlName="password"
+                  class="form-control"
+                  required
+                />
+                <div
+                  *ngIf="paymentForm.get('password')?.touched && paymentForm.get('password')?.dirty && paymentForm.get('password')?.errors?.['passwordMismatch']"
+                  class="error-message"
+                >
+                  Password does not match.
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Submit Payment
+              </button>
+            </form> -->
+            <app-graph></app-graph>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.table-responsive {
+  width: 90%;
+  height: 90%;
+  overflow: scroll;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+.table-responsive {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,148 @@
+/* Styles for the bank admin dashboard component */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: transparent;
+  color: #2c3e50;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.bank-admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #394f65;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.table-responsive {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+.table-responsive::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+A .sidebar-header h3 {
+  margin: 10;
+  font-size: 1.5em;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding-left: 30px;
+  margin: 20px;
+}
+
+.nav-links li {
+  margin-bottom: 30px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+}
+
+#table {
+  width: 50%;
+  margin: 50px 50px 0px 50px;
+}
+
+#table {
+  max-height: 300px;
+}
+
+.payment-form-container {
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.amount-input-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.amount-input {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 100px;
+  text-align: left;
+}
+
+.amount-input-container .fas {
+  margin-right: 8px;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+/* hllllllllllllllllllllllllll */

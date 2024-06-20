@@ -1,0 +1,61 @@
+<button class="btn btn-primary" style="margin: 20px" (click)="back()">
+  Back
+</button>
+
+<div
+  class="col-md-10 col- ps-md-8 p-4"
+  id="transactionD"
+  style="margin-left: 100px"
+>
+  <div class="box-left" id="transaction-box">
+    <p class="fw-bold h7" id="transaction-label">Transactions</p>
+
+    <div class="table-responsive" id="table1">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">To Acc</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(transaction of sentTransactions; track $index){
+          <tr>
+            <td>{{ transaction.toAccount }}</td>
+            <td>{{ transaction.transactionType }}</td>
+            <td>{{ transaction.transactionDate }}</td>
+
+            <td class="text-danger">-{{ transaction.amount }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <h1>Received</h1>
+    <div class="table-responsive" id="table1">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">To Acc</th>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(transaction of receivedTransactions; track $index){
+          <tr>
+            <td>{{ transaction.fromAccount }}</td>
+            <td>{{ transaction.transactionType }}</td>
+            <td>{{ transaction.transactionDate }}</td>
+
+            <td class="text-success">+{{ transaction.amount }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

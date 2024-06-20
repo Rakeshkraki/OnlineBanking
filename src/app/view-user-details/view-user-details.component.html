@@ -1,0 +1,48 @@
+<div class="user-details-container">
+  <div class="user-header">
+    <div class="user-name">
+      <h2>{{ userDetails.firstName }} {{ userDetails.lastName }}</h2>
+      <p>{{ userDetails.occupationType }}</p>
+    </div>
+  </div>
+  <div class="user-info">
+    <div class="info-group">
+      <h3>Personal Details</h3>
+      <p><strong>Date of Birth:</strong> {{ userDetails.dateOfBirth }}</p>
+      <p><strong>Gender:</strong> {{ userDetails.gender }}</p>
+      <p><strong>Nationality:</strong> {{ userDetails.nationality }}</p>
+      <p>
+        <strong>Educational Qualification:</strong>
+        {{ userDetails.educationalQualification }}
+      </p>
+    </div>
+    <div class="info-group">
+      <h3>Contact Information</h3>
+      <p><strong>Email:</strong> {{ userDetails.emailAddress }}</p>
+      <p><strong>Mobile:</strong> {{ userDetails.mobileNumber }}</p>
+      <p>
+        <strong>Address:</strong> {{ userDetails.address }},
+        {{ userDetails.city }}, {{ userDetails.district }},
+        {{ userDetails.state }}, {{ userDetails.countryName }},
+        {{ userDetails.pin }}
+      </p>
+    </div>
+    <div class="info-group">
+      <h3>Identification</h3>
+      <p><strong>Aadhar:</strong> {{ userDetails.aadhar }}</p>
+      <p><strong>PAN:</strong> {{ userDetails.pan }}</p>
+      <p><strong>Driving License:</strong> {{ userDetails.drivingLicense }}</p>
+      <p><strong>Voter ID:</strong> {{ userDetails.voterId }}</p>
+    </div>
+    <div class="info-group">
+      <h3>Other Information</h3>
+      <p>
+        <strong>Annual Income:</strong>
+        {{ userDetails.annualIncome | currency }}
+      </p>
+      <p>
+        <strong>Declaration Date:</strong> {{ userDetails.declarationDate }}
+      </p>
+    </div>
+  </div>
+</div>

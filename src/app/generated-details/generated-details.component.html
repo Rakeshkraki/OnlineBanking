@@ -1,0 +1,23 @@
+@if(created == true){
+
+<div class="container">
+  <div class="alert alert-success" role="alert">
+    <h1 class="alert-heading">Thank you for Creating Account</h1>
+
+    <p>Your Account Details</p>
+    <hr />
+    <p class="mb-0">Account Number {{ genDetails.accountNumber }}</p>
+    <p class="mb-0">Bank Name {{ genDetails.branchName }}</p>
+    <p class="mb-0">IFSE Code {{ genDetails.ifseCode }}</p>
+  </div>
+</div>
+
+} @if(created == false){
+
+<div class="container">
+  <div class="alert alert-danger" role="alert">
+    <h1 class="alert-heading">Account Not Created</h1>
+  </div>
+</div>
+
+}

@@ -1,0 +1,187 @@
+<div class="vertical-nav bg-dark" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center">
+      <img
+        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+        alt="..."
+        width="65"
+        class="mr-3 rounded-circle img-thumbnail shadow-sm"
+      />
+      <div class="media-body">
+        <h2 class="m-0">
+          {{ userAllDetails.firstName }} {{ userAllDetails.lastName }}
+        </h2>
+      </div>
+    </div>
+    <span>{{ userAllDetails.emailAddress }}</span>
+  </div>
+
+  <ul class="nav flex-column bg-dark mb-0">
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link text-light font-italic bg-dark"
+        style="margin: 20px"
+      >
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link text-light font-italic bg-dark"
+        style="margin: 20px"
+        (click)="transactions()"
+      >
+        Transactions
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link text-light font-italic"
+        style="margin: 20px"
+        (click)="ViewMyDetails()"
+      >
+        My Details
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a
+        class="nav-link text-light font-italic"
+        style="margin: 20px"
+        (click)="logout()"
+      >
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="page-content p-5" id="content">
+  <h2 class="display-4 text-white">Bootstrap vertical nav</h2>
+
+  <div class="container">
+    <div class="row m-0">
+      <div class="col-md-17 col-12">
+        <div class="row">
+          <div class="col-12 mb-4">
+            <div class="row box-right">
+              <div class="col-md-8 ps-0">
+                <p class="ps-3 text-muted fw-bold h6 mb-0">Current Balance</p>
+                <p class="h1 fw-bold d-flex">
+                  <span
+                    class="fa fa-dollar text-muted pe-1 h6 align-text-top mt-1"
+                  ></span
+                  >{{ user.balance }}<span class="text-muted">.00</span>
+                </p>
+                <p class="ms-3 px-2 bg-green"></p>
+              </div>
+              <div class="payment-forms">
+                <div class="payment-form-container">
+                  <form [formGroup]="reqForm" (ngSubmit)="onRequest()">
+                    <div class="form-group">
+                      <p class="ps-3 text-muted fw-bold h4 mb-4">
+                        Request Deposit
+                      </p>
+                      <label for="amount">Amount</label>
+                      <div class="amount-input-container">
+                        <span
+                          class="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"
+                        ></span>
+                        <input
+                          type="number"
+                          id="amount"
+                          formControlName="amount"
+                          class="amount-input"
+                          required
+                        />
+                        <span class="text-muted">.00</span>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Send Request
+                    </button>
+                  </form>
+                  <div class="image-container">
+                    <img
+                      src="/assets/images/Deposit.png"
+                      alt=""
+                      width="300px"
+                    />
+                  </div>
+                </div>
+                <div class="payment-form-container">
+                  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <p class="ps-3 text-muted fw-bold h4 mb-4">
+                        Make Payment
+                      </p>
+                      <label for="amount">Amount</label>
+                      <div class="amount-input-container">
+                        <span
+                          class="fas fa-dollar-sign text-muted pe-1 h6 align-text-top mt-1"
+                        ></span>
+                        <input
+                          type="number"
+                          id="amount"
+                          formControlName="amount"
+                          class="amount-input"
+                          required
+                        />
+                        <span class="text-muted">.00</span>
+                      </div>
+                      <div
+                        *ngIf="paymentForm.get('amount')?.touched && paymentForm.get('amount')?.dirty && paymentForm.get('amount')?.errors?.['amountExceedsBalance']"
+                        class="error-message"
+                      >
+                        Entered amount exceeds your balance.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="accountNumber">Account Number</label>
+                      <input
+                        type="text"
+                        id="accountNumber"
+                        formControlName="accountNumber"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="ifscCode">IFSC Code</label>
+                      <input
+                        type="text"
+                        id="ifscCode"
+                        formControlName="ifscCode"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input
+                        type="password"
+                        id="password"
+                        formControlName="password"
+                        class="form-control"
+                        required
+                      />
+                      <div
+                        *ngIf="paymentForm.get('password')?.touched && paymentForm.get('password')?.dirty && paymentForm.get('password')?.errors?.['passwordMismatch']"
+                        class="error-message"
+                      >
+                        Password does not match.
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Submit Payment
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

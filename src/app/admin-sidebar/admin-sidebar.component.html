@@ -1,0 +1,29 @@
+<div class="bank-admin-dashboard">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="media d-flex align-items-center">
+      <img
+        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+        alt="..."
+        width="45"
+        class="mr-3 rounded-circle img-thumbnail shadow-sm"
+        style="margin-right: 5px"
+      />
+      <div class="media-body">
+        <h2 class="m-0">
+          {{ admin.adminName }}
+        </h2>
+        <span>{{ admin.adminEmail }}</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a (click)="usrFull()">Accounts</a></li>
+      <li><a (click)="accFull()">Transactions</a></li>
+      <li><a (click)="branches()">Branches</a></li>
+      <li><a (click)="msgReq()">Deposit Reauests</a></li>
+      <li><a (click)="addAdmin()">Add Admins</a></li>
+      <!-- <li><a (click)="adminList()">Deposit Reauests</a></li> -->
+    </ul>
+  </div>
+</div>

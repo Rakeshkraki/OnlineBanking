@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>All Transactions</h1>
+
+  <div class="table-responsive">
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Date</th>
+          <th scope="col">From Acc</th>
+          <th scope="col">To Acc</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(transaction of transactions; track $index){
+        <tr>
+          <td>{{ transaction.transactionId }}</td>
+          <td>{{ transaction.transactionDate }}</td>
+
+          <td>{{ transaction.fromAccount }}</td>
+          <td>{{ transaction.toAccount }}</td>
+          <td>
+            <i class="fas fa-dollar-sign text-success mr-3"></i
+            >{{ transaction.amount }}
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

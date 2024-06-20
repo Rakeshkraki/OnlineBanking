@@ -1,0 +1,59 @@
+<div class="bank-admin-dashboard">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <img
+        src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+        alt="..."
+        width="65"
+        class="mr-3 rounded-circle img-thumbnail shadow-sm"
+      />
+      <h3>Rakesh K</h3>
+    </div>
+    <ul class="nav-links">
+      <li>Home</li>
+      <li>Accounts</li>
+      <li>Transactions</li>
+      <li><a (click)="msgReq()">Deposit Requests</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="messages-container">
+      @for(mesg of messeges; track mesg){
+      <div class="message-container">
+        <div class="user-message">
+          <img
+            src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+            alt="User Avatar"
+            class="avatar"
+          />
+          <div class="message-content">
+            <p>
+              <strong style="font-size: larger">{{ mesg.accountNumber }}</strong
+              ><span>{{ mesg.recivedDate }}</span>
+            </p>
+            <p>Hi,</p>
+            <p>
+              I would like to request
+              <span style="font-weight: bold">$ {{ mesg.amount }}</span> deposit
+              into my bank account. Please proceed with the transaction
+            </p>
+            <p>Thanks,</p>
+          </div>
+        </div>
+        <div class="admin-action">
+          @if(mesg.depositStatus == "pending"){
+          <button
+            class="deposit-button"
+            (click)="deposit(mesg.accountNumber, mesg.amount, mesg.messegeId)"
+          >
+            Deposit
+          </button>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

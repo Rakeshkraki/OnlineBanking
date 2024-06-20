@@ -1,0 +1,95 @@
+/* table */
+
+#transaction-box {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#invoice-label {
+  color: #6c757d;
+}
+
+#transaction-label {
+  font-weight: bold;
+  font-size: 1rem;
+  width: 80%;
+}
+
+#sent-transactions,
+#received-transactions {
+  margin-top: 20px;
+}
+
+#sent-transactions-label,
+#received-transactions-label {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+#sent-table,
+#received-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#sent-table th,
+#received-table th,
+#sent-table td,
+#received-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+#sent-table th,
+#received-table th {
+  background-color: #0d161f;
+  color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+#sent-table td,
+#received-table td {
+  border: 1px solid #dee2e6;
+}
+
+#sent-table tr:nth-child(even),
+#received-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#sent-table tr:hover,
+#received-table tr:hover {
+  background-color: #e9ecef;
+}
+
+@media (max-width: 768px) {
+  #sent-table th,
+  #received-table th,
+  #sent-table td,
+  #received-table td {
+    padding: 8px;
+  }
+
+  #sent-transactions-label,
+  #received-transactions-label {
+    font-size: 1rem;
+  }
+}
+
+#table1 {
+  height: 350px;
+}
+
+#table1 {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+#table1 ::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+/* back button */

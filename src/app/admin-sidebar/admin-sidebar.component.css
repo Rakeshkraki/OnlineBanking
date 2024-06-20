@@ -1,0 +1,40 @@
+.bank-admin-dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+A .sidebar-header h3 {
+  margin: 10;
+  font-size: 1.5em;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding-left: 30px;
+  margin: 20px;
+}
+
+.nav-links li {
+  margin-bottom: 30px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}

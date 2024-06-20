@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="image-container">
+    <img src="/assets/images/Bank-PNG.png" alt="" width="200px" />
+  </div>
+  <form (ngSubmit)="submitForm()">
+    <div class="row">
+      <h2>Login For Net Banking</h2>
+    </div>
+
+    <div class="row">
+      <div class="input-group input-group-icon">
+        <input
+          type="text"
+          placeholder="PAN"
+          [(ngModel)]="pan"
+          name="pan"
+          required
+        />
+        <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+      </div>
+      <div class="input-group input-group-icon">
+        <input
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+        <div class="input-icon"><i class="fa fa-key"></i></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h6>Terms and Conditions</h6>
+      <div class="input-group">
+        <input
+          id="terms"
+          type="checkbox"
+          [(ngModel)]="termsAccepted"
+          name="terms"
+          required
+        />
+        <label for="terms"
+          >I accept the terms and conditions for signing up to this service, and
+          hereby confirm I have read the privacy policy.</label
+        >
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!termsAccepted">
+        Next
+      </button>
+    </div>
+  </form>
+</div>

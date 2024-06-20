@@ -1,0 +1,124 @@
+<div class="main-div">
+  <div class="image-container">
+    <img src="/assets/images/logo.png" alt="" width="100px" />
+  </div>
+  <div class="containers"><h1>All Branches</h1></div>
+  <div class="card" id="table">
+    <div class="table-responsive" id="table1">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Address</th>
+            <th scope="col">phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(transaction of branches; track $index){
+          <tr>
+            <td>{{ transaction.branchName }}</td>
+            <td>{{ transaction.branchCode }}</td>
+            <td>{{ transaction.branchAddress }}</td>
+            <td>{{ transaction.phone }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <form [formGroup]="registerForms" (ngSubmit)="submitForm()">
+    <div class="row">
+      <h4 class="mt-2">Add New branch</h4>
+
+      <div class="row">
+        <div class="input-group input-group-icon">
+          <input type="text" formControlName="name" placeholder="Name" />
+          <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+          <div
+            *ngIf="
+              registerForms.get('name')?.touched &&
+              registerForms.get('name')?.invalid
+            "
+            class="error text-danger"
+          >
+            Name is required
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group input-group-icon">
+        <input type="text" placeholder="Branch Code" formControlName="code" />
+        <div class="input-icon"><i class="fa fa-key"></i></div>
+        <div
+          *ngIf="
+            registerForms.get('code')?.touched &&
+            registerForms.get('code')?.invalid
+          "
+        >
+          <small>Branch Code is required.</small>
+        </div>
+      </div>
+
+      <div class="input-group input-group-icon">
+        <input type="text" formControlName="mobileNumber" placeholder="Phone" />
+        <div class="input-icon"><i class="fa fa-phone"></i></div>
+        <div
+          *ngIf="
+            registerForms.get('mobileNumber')?.touched &&
+            registerForms.get('mobileNumber')?.invalid
+          "
+          class="error text-danger"
+        >
+          Phone is required
+        </div>
+      </div>
+
+      <div class="input-group input-group-icon">
+        <input
+          type="text"
+          formControlName="address"
+          placeholder="Brach Address"
+        />
+        <div class="input-icon"><i class="fa fa-map"></i></div>
+        <div
+          *ngIf="
+            registerForms.get('address')?.touched &&
+            registerForms.get('address')?.invalid
+          "
+          class="error text-danger"
+        >
+          Address is required
+        </div>
+      </div>
+
+      <div class="input-group">
+        <input id="terms" type="checkbox" formControlName="terms" />
+        <label for="terms"
+          >I accept the terms and conditions for signing up to this service, and
+          hereby confirm I have read the privacy policy.</label
+        >
+        <div
+          *ngIf="
+            registerForms.get('terms')?.touched &&
+            registerForms.get('terms')?.invalid
+          "
+          class="error text-danger"
+        >
+          You must accept the terms and conditions
+        </div>
+      </div>
+
+      <button
+        id="submitButton"
+        type="submit"
+        class="btn"
+        [disabled]="registerForms.invalid"
+      >
+        Next
+      </button>
+    </div>
+  </form>
+</div>

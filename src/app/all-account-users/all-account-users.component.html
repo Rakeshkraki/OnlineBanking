@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>All Users</h1>
+  <div class="card" id="table">
+    <div class="table-responsive" id="table1">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">profile</th>
+            <th scope="col">Full Name</th>
+
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(transaction of allUsers; track $index){
+          <tr>
+            <td>
+              <img
+                src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+                alt="..."
+                width="25"
+                class="mr-4 rounded-circle img-thumbnail shadow-sm"
+              />
+            </td>
+            <td>{{ transaction.firstName }} {{ transaction.lastName }}</td>
+
+            <td>{{ transaction.mobileNumber }}</td>
+            <td>{{ transaction.emailAddress }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
